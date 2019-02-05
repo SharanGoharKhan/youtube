@@ -5,13 +5,13 @@ class ApiResponse {
         this.message = ''
         this.data = {}
     }
-    success(data = {}, message = '') {
+    success(data , message ) {
         this.status = true
         this.data = data
         this.message = message
         return this
     }
-    failure(data = {}, message = '') {
+    failure(data , message ) {
         this.status = false
         this.data = data
         this.message = message
