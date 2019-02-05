@@ -1,0 +1,31 @@
+<div class="container">
+    <table id="myTable">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+
+                <th>Subscribe</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each channels}}
+            <tr>
+                <td>{{title}}</td>
+                <td>{{description}}</td>
+                <td>
+                    <div class="g-ytsubscribe" data-channelid="{{channelId}}" data-layout="full"
+                        data-theme="dark" data-count="default"></div>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        channelsTable = $('#myTable').DataTable()
+    })
+</script>

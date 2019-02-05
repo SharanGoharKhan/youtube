@@ -12,6 +12,22 @@ router.get('/', (req, res) => {
     res.render('youtube')
 })
 
+router.get('/:id', (req, res) => {
+    let response = new ApiResponse()
+    let userid = req.params.id
+    User.findOne({ userid }, (err, user) => {
+        if (err) {
+            res.json(response.failure(err, 'an error occured while looking for userid'))
+            return
+        }
+        if (!user) {
+            res.json(response.failure(userid, 'no user found against this userid'))
+            return
+        }
+        res.render('channels', { channels: user.channels })
+    })
+})
+
 router.post('/', (req, res) => {
     let response = new ApiResponse()
     User.findOne({ userid: req.body.userid }, (err, user) => {

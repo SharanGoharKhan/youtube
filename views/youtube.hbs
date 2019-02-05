@@ -4,32 +4,12 @@
 <div id="auth-status" style="display: inline; padding-left: 25px"></div>
 <hr>
 <div class="container">
-    <table id="myTable">
-        <thead>
-            <tr>
-                <th>Channel Name</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-    </table>
+    <div>
+        <input id="txt-sharedlink" type="text" value="something" readonly>
+        <a href="" id="a-sharedlink" target="blank">Click here</a>
+    </div>
 </div>
 <script src="/auth.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()"
     onreadystatechange="if (this.readyState === 'complete') this.onload()">
     </script>
-<link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
-<script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-<script>
-    $(document).ready(function () {
-        channelsTable = $('#myTable').DataTable()
-    })
-</script>
-
-{{!-- <script src="https://apis.google.com/js/platform.js"></script> --}}
-
-{{!-- <div class="g-ytsubscribe" data-channel="GoogleDevelopers" data-layout="default" data-count="default"></div> --}}
-
-
-
-  
