@@ -16,7 +16,7 @@ const accounts = require('./routes/accounts')
 
 
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
 
 
 mongoose.Promise = global.Promise
@@ -52,8 +52,12 @@ app.use('/channels', channels)
 
 
 
-app.get('/', (request, response) => {
-    response.render('home')
+app.get('/', (req, res) => {
+    res.render('home')
+})
+
+app.get('/privacy', (req, res) => {
+    res.render('privacy')
 })
 
 
