@@ -13,6 +13,7 @@ router.get('/', (req, res) => {
 })
 
 router.get('/:id', (req, res) => {
+    "use strict"
     let response = new ApiResponse()
     let userid = req.params.id
     User.findOne({ userid }, (err, user) => {
@@ -29,6 +30,7 @@ router.get('/:id', (req, res) => {
 })
 
 router.post('/', (req, res) => {
+    "use strict"
     let response = new ApiResponse()
     User.findOne({ userid: req.body.userid }, (err, user) => {
         if (err) {

@@ -7,11 +7,13 @@ const ApiResponse = require('../utilities/ApiResponse')
 const User = require('../models/users')
 
 router.get('/', (req, res) => {
+    "use strict"
     let response = new ApiResponse()
     res.json(response.success())
 })
 
 router.post('/', (req, res) => {
+    "use strict"
     let response = new ApiResponse()
     const user = new User({
         userid: req.body.userid,
