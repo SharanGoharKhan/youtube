@@ -1,3 +1,4 @@
+"use strict"
 class ApiResponse {
     constructor() {
         this.status = false
