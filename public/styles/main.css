@@ -16,7 +16,6 @@
 
 }
 .main_body{
-    overflow: hidden;
     height: 450px;
     display: flex;
     flex-direction: column;

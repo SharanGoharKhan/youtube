@@ -21,7 +21,7 @@
                     </div>
             </div>
     </header>
-    <main class=" page_main">
+    <main class=" page_main ">
         <div class="container main_body ">
             {{{body}}}
         </div>
@@ -53,9 +53,11 @@
             channelsTable = null
             if($("#myTable"))
                 channelsTable = $('#myTable').DataTable({
-                    "paging":   false,
+                    "paging":   true,
                         "ordering": true,
-                        "info":     false
+                        "info":     false,
+                          "scrollY": "400px",
+  "scrollCollapse": true,
                 })
         })
     </script>
