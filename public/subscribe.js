@@ -74,13 +74,14 @@ function buildApiRequest(requestMethod, path, params, properties) {
 function defineRequest(channelId) {
     // See full sample for buildApiRequest() code, which is not 
     // specific to a particular API or API method.
-
-    buildApiRequest('POST',
-        '/youtube/v3/subscriptions',
-        { 'part': 'snippet' },
-        {
-            'snippet.resourceId.kind': 'youtube#channel',
-            'snippet.resourceId.channelId': channelId
-        });
+    if (!GoogleAuth.isSignedIn.get()) GoogleAuth.signIn()
+    else
+        buildApiRequest('POST',
+            '/youtube/v3/subscriptions',
+            { 'part': 'snippet' },
+            {
+                'snippet.resourceId.kind': 'youtube#channel',
+                'snippet.resourceId.channelId': channelId
+            });
 
 }
