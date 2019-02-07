@@ -63,14 +63,19 @@ function setSigninStatus(isSignedIn) {
     if (isAuthorized) {
         $('#sign-in-or-out-button').html('Sign out')
         $('#revoke-access-button').css('display', 'inline-block')
-        $('#auth-status').html('You are currently signed in and have granted ' +
-            'access to this app.')
+        //$('#auth-status').html('You are currently signed in and have granted ' +
+        //    'access to this app.')
         getData() //load channel list, subscription list and user profile
+        $(".authenicate-request-text").hide()
+        $(".link-container").show()
     } else {
         $('#sign-in-or-out-button').html('Sign In/Authorize')
         $('#revoke-access-button').css('display', 'none')
-        $('#auth-status').html('You have not authorized this app or you are ' +
-            'signed out.')
+        //$('#auth-status').html('You have not authorized this app or you are ' +
+        //    'signed out.')
+
+        $(".authenicate-request-text").show()
+        $(".link-container").hide()
     }
 }
 
@@ -86,10 +91,11 @@ function getSubscribedList(pageToken) {
     })
     // Execute the API request.
     request.execute(function (response) {
+        console.log(response.items)
         response.items.forEach(channel => {
             let c = {
                 channelId: channel.snippet.resourceId.channelId,
-                description:channel.snippet.description,
+                description:channel.snippet.description.length>100?channel.snippet.description.substring(0,100)+"...":channel.snippet.description,
                 title: channel.snippet.title
             }
             channelsList.push(c)
@@ -149,7 +155,8 @@ function getSharedLink() {
         email: profile.getEmail()
     }
     $('#a-sharedlink').attr('href', '/channels/' + data.userid)
-    $('#txt-sharedlink').val(location.host + '/channels/' + data.userid)
+    $('#txt-sharedlink').attr('href', '/channels/' + data.userid)
+    $('#txt-sharedlink').text($(location).attr('protocol')+$(location).attr('host')+'/channels/' + data.userid)
 }
 
 function getUserProfile() {
