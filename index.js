@@ -16,7 +16,7 @@ const accounts = require('./routes/accounts')
 
 
 const app = express()
-const port = process.env.PORT || 4001
+const port = process.env.PORT || 3000
 
 // Enable reverse proxy support in Express. This causes the
 // the "X-Forwarded-Proto" header field to be trusted so its

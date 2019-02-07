@@ -14,7 +14,9 @@
                 <td>{{title}}</td>
                 <td>{{description}}</td>
                 <td>
-                   <a href="https://www.youtube.com/channel/{{channelId}}?sub_confirmation=1" target="_blank">Subscribe</a>
+                    <button id='{{channelId}}' style="margin-left: 25px" onclick="defineRequest('{{channelId}}')">Subscribe</button>
+                    {{!-- <a href="https://www.youtube.com/channel/{{channelId}}?sub_confirmation=1" target="_blank">Subscribe</a>
+                    --}}
                 </td>
             </tr>
             {{/each}}
