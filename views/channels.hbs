@@ -1,18 +1,21 @@
-<div class="container">
-    <table id="myTable">
+
+
+
+    <table id="myTable" class="table table-responsive table-sm table-striped table-bordered">
         <thead>
             <tr>
-                <th>Title</th>
-                <th>Description</th>
+                <th >Title</th>
+                <th >Description</th>
 
-                <th>Subscribe</th>
+                <th >Subscribe</th>
             </tr>
         </thead>
         <tbody>
             {{#each channels}}
             <tr>
                 <td>{{title}}</td>
-                <td>{{description}}</td>
+                <td>
+                    {{ description}}                    
                 <td>
                    <a href="https://www.youtube.com/channel/{{channelId}}?sub_confirmation=1" target="_blank">Subscribe</a>
                 </td>
@@ -20,11 +23,4 @@
             {{/each}}
         </tbody>
     </table>
-</div>
 
-
-<script>
-    $(document).ready(function () {
-        channelsTable = $('#myTable').DataTable()
-    })
-</script>
