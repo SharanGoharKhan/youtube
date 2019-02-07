@@ -40,8 +40,14 @@ function initClient() {
         $('#revoke-access-button').click(function () {
             revokeAccess()
         })
+
+        $('#main-btn').click(function () {
+            handleLoginClick()
+        })
+        
     })
 }
+
 
 function handleAuthClick() {
     if (GoogleAuth.isSignedIn.get()) {
@@ -57,25 +63,39 @@ function revokeAccess() {
     GoogleAuth.disconnect()
 }
 
+// UI compatible version- alternate to handleAuthClick()
+function handleLoginClick(){
+    if (GoogleAuth.isSignedIn.get()) {
+        // User is authorized and has clicked 'Sign out' button.
+        GoogleAuth.signOut()
+        // for now do nothin
+    } else {
+        // User is not signed in. Start Google auth flow.
+        GoogleAuth.signIn()
+    }
+}
+
 function setSigninStatus(isSignedIn) {
     var user = GoogleAuth.currentUser.get()
     var isAuthorized = user.hasGrantedScopes(SCOPE)
     if (isAuthorized) {
-        $('#sign-in-or-out-button').html('Sign out')
-        $('#revoke-access-button').css('display', 'inline-block')
+        $("#main-btn").html("Signout")
+        //$('#sign-in-or-out-button').html('Sign out')
+        //$('#revoke-access-button').css('display', 'inline-block')
         //$('#auth-status').html('You are currently signed in and have granted ' +
         //    'access to this app.')
         getData() //load channel list, subscription list and user profile
-        $(".authenicate-request-text").hide()
-        $(".link-container").show()
+        //$(".authenicate-request-text").hide()
+        //$(".link-container").show()
     } else {
-        $('#sign-in-or-out-button').html('Sign In/Authorize')
-        $('#revoke-access-button').css('display', 'none')
+        $("#main-btn").html("    <img class height=\"60px\" style=\"padding-bottom: 10px; color: #fff;\"  width=\"56px\" src=\"/images/play-button.svg\" > LET'S DO IT ")
+        //$('#sign-in-or-out-button').html('Sign In/Authorize')
+        //$('#revoke-access-button').css('display', 'none')
         //$('#auth-status').html('You have not authorized this app or you are ' +
         //    'signed out.')
 
-        $(".authenicate-request-text").show()
-        $(".link-container").hide()
+        //$(".authenicate-request-text").show()
+        //$(".link-container").hide()
     }
 }
 
