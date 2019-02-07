@@ -42,7 +42,7 @@ function initClient() {
         })
 
         $('#main-btn').click(function () {
-            handleLoginClick()
+            handleAuthClick()
         })
         
     })
@@ -79,7 +79,10 @@ function setSigninStatus(isSignedIn) {
     var user = GoogleAuth.currentUser.get()
     var isAuthorized = user.hasGrantedScopes(SCOPE)
     if (isAuthorized) {
-        $("#main-btn").html("Signout")
+        $("#main_container").html("<button id=\"main-btn\"  class=\"main_body-btn center-block\"> Signout</button><p class=\"main_body-text\"> Share Subscribed Channels </p>   ")
+        $('#main-btn').click(function () {
+            handleAuthClick()
+        })
         //$('#sign-in-or-out-button').html('Sign out')
         //$('#revoke-access-button').css('display', 'inline-block')
         //$('#auth-status').html('You are currently signed in and have granted ' +
@@ -88,7 +91,10 @@ function setSigninStatus(isSignedIn) {
         //$(".authenicate-request-text").hide()
         //$(".link-container").show()
     } else {
-        $("#main-btn").html("    <img class height=\"60px\" style=\"padding-bottom: 10px; color: #fff;\"  width=\"56px\" src=\"/images/play-button.svg\" > LET'S DO IT ")
+        $("#main_container").html("<button id=\"main-btn\"  class=\"main_body-btn center-block\"><img class height=\"60px\" style=\"padding-bottom: 10px; color: #fff;\"  width=\"56px\" src=\"/images/play-button.svg\" > LET\'S DO IT </button><p class=\"main_body-text\"> Share Subscribed Channels </p>   ")
+        $('#main-btn').click(function () {
+            handleAuthClick()
+        })
         //$('#sign-in-or-out-button').html('Sign In/Authorize')
         //$('#revoke-access-button').css('display', 'none')
         //$('#auth-status').html('You have not authorized this app or you are ' +
