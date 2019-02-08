@@ -47,9 +47,13 @@
     cursor: pointer;
 }
 .main_body-btn img{
+    transition: 1s all;
+    transform-origin: center;
+    margin-bottom: 10px;
 
 }
 .main_body-btn:hover img{
+    transform: rotate(240deg)
 }
 .main_body-btn:focus{
     outline: none;
@@ -105,6 +109,12 @@ a:active{
       margin-top: 10px;
   }
 
+/* Table styling */
+.channels-table{
+    margin-top: 10px;
+}
+
+
 /* animations for slider */
 
 .sk-wave {
@@ -157,3 +167,34 @@ a:active{
 
       -webkit-transform: scaleY(.8);
               transform: scaleY(.8); } }
+
+              /* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    }
+    
+/* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #f44336; 
+        transition: 0.8s all;
+    }
+    
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+    background: #fd1245; 
+    }
+  li.active a, li.active a:link{
+    color:#fff !important ;
+    background-color:  #f44336 !important;
+    border: 1px solid  #f44336 !important;
+
+
+    } 
+
+    li a:focus{
+        box-shadow:none !important;
+    }

@@ -1,5 +1,6 @@
 
 
+<div class="channels-table ">
 
     <table id="myTable" class="table table-responsive table-sm table-striped table-bordered">
         <thead>
@@ -17,7 +18,7 @@
                 <td>
                     {{ description}}                    
                 <td>
-                    <button id='{{channelId}}' style="margin-left: 25px" onclick="defineRequest('{{channelId}}')">Subscribe</button>
+                    <button id='{{channelId}}'  onclick="defineRequest('{{channelId}}')">Subscribe</button>
                     {{!-- <a href="https://www.youtube.com/channel/{{channelId}}?sub_confirmation=1" target="_blank">Subscribe</a>
                     --}}
                 </td>
@@ -25,4 +26,5 @@
             {{/each}}
         </tbody>
     </table>
+</div>
 

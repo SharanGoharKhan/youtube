@@ -79,10 +79,21 @@ function setSigninStatus(isSignedIn) {
     var user = GoogleAuth.currentUser.get()
     var isAuthorized = user.hasGrantedScopes(SCOPE)
     if (isAuthorized) {
-        $("#main_container").html("<button id=\"main-btn\"  class=\"main_body-btn center-block\"> Signout</button><p class=\"main_body-text\"> Share Subscribed Channels </p>   ")
-        $('#main-btn').click(function () {
-            handleAuthClick()
-        })
+
+        // if it is on callencer/link
+        if( window.location.href.split('/').length == 5   )
+        {
+            // do nothing
+            // remove flex from main container though
+            $("#main_container").removeClass("main_body")
+        }
+        else{
+            $("#main_container").html("<div class=\"link-container\" ><h3>Your link is generated</h3><a id=\"txt-sharedlink\" > </a><a href=\"#\" id=\"a-sharedlink\" target=\"blank\">Clipboard</a></div>")
+            $("#main_container").append("<a href=\"#\" id=\"main-btn\">DEBG- Sign Out</a>")
+            $('#main-btn').click(function () {
+                handleAuthClick()
+            })
+        }
         //$('#sign-in-or-out-button').html('Sign out')
         //$('#revoke-access-button').css('display', 'inline-block')
         //$('#auth-status').html('You are currently signed in and have granted ' +
@@ -91,7 +102,7 @@ function setSigninStatus(isSignedIn) {
         //$(".authenicate-request-text").hide()
         //$(".link-container").show()
     } else {
-        $("#main_container").html("<button id=\"main-btn\"  class=\"main_body-btn center-block\"><img class height=\"60px\" style=\"padding-bottom: 10px; color: #fff;\"  width=\"56px\" src=\"/images/play-button.svg\" > LET\'S DO IT </button><p class=\"main_body-text\"> Share Subscribed Channels </p>   ")
+        $("#main_container").html("<button id=\"main-btn\"  class=\"main_body-btn center-block\"><img class height=\"60px\" style=\" color: #fff;\"  width=\"56px\" src=\"/images/play-button.svg\" > LET\'S DO IT </button><p class=\"main_body-text\"> Share Subscribed Channels </p>   ")
         $('#main-btn').click(function () {
             handleAuthClick()
         })
