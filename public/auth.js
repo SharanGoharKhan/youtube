@@ -85,11 +85,28 @@ function setSigninStatus(isSignedIn) {
         {
             // do nothing
             // remove flex from main container though
-            $("#main_container").removeClass("main_body")
+            //$("#main_container").removeClass("main_body")
         }
         else{
-            $("#main_container").html("<div class=\"link-container\" ><h3>Your link is generated</h3><a id=\"txt-sharedlink\" > </a><a href=\"#\" id=\"a-sharedlink\" target=\"blank\">Clipboard</a></div>")
-            $("#main_container").append("<a href=\"#\" id=\"main-btn\">DEBG- Sign Out</a>")
+            $('#main_container').html("<div id=\"main_body\" class=\"main_body\"></div>")
+            $("#main_body").html(`
+            <h3>Your link is generated</h3>
+
+                <div class="link-container input-group mb-3">
+                    <input id="link-input" readonly type="text" class="form-control link-input" placeholder="Link" >
+                    <div  class="input-group-append">
+                    <button id="clipboard-btn" class="btn btn-outline-secondary  clipboard-btn" type="button">
+                        <img class="clipboard-icon" src="/images/clipboard-with-pencil-.svg" />
+                        Copy
+                    
+                    </button>
+                    </div>
+                </div> 
+                </a><a href="#" id="a-sharedlink" target="blank">Go To Link</a>  
+
+
+               `)
+            $("#main_body").append("<a href=\"#\" id=\"main-btn\">DEBG- Sign Out</a>")
             $('#main-btn').click(function () {
                 handleAuthClick()
             })
@@ -102,7 +119,8 @@ function setSigninStatus(isSignedIn) {
         //$(".authenicate-request-text").hide()
         //$(".link-container").show()
     } else {
-        $("#main_container").html("<button id=\"main-btn\"  class=\"main_body-btn center-block\"><img class height=\"60px\" style=\" color: #fff;\"  width=\"56px\" src=\"/images/play-button.svg\" > LET\'S DO IT </button><p class=\"main_body-text\"> Share Subscribed Channels </p>   ")
+        $('#main_container').html("<div id=\"main_body\" class=\"main_body\"></div>")
+        $("#main_body").html("<button id=\"main-btn\"  class=\"main_body-btn center-block\"><img class height=\"60px\" style=\" color: #fff;\"  width=\"56px\" src=\"/images/play-button.svg\" > LET\'S DO IT </button><p class=\"main_body-text\"> Share Subscribed Channels </p>   ")
         $('#main-btn').click(function () {
             handleAuthClick()
         })
@@ -132,8 +150,9 @@ function getSubscribedList(pageToken) {
         response.items.forEach(channel => {
             let c = {
                 channelId: channel.snippet.resourceId.channelId,
-                description:channel.snippet.description.length>100?channel.snippet.description.substring(0,100)+"...":channel.snippet.description,
-                title: channel.snippet.title
+                // LENGTH CHECKS,
+                description:channel.snippet.description.length>80?channel.snippet.description.substring(0,80)+"...":channel.snippet.description,
+                title: channel.snippet.title > 35? channel.snippet.title.substring(0,35)+"...":channel.snippet.title
             }
             channelsList.push(c)
         })
@@ -191,8 +210,8 @@ function getSharedLink() {
         imageUrl: profile.getImageUrl(),
         email: profile.getEmail()
     }
+    $('#link-input').attr(  'value', $(location).attr('origin')+'/channels/' + data.userid)
     $('#a-sharedlink').attr('href', '/channels/' + data.userid)
-    $('#txt-sharedlink').attr('href', '/channels/' + data.userid)
     $('#txt-sharedlink').text($(location).attr('protocol')+$(location).attr('host')+'/channels/' + data.userid)
 }
 

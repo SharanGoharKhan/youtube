@@ -109,11 +109,64 @@ a:active{
       margin-top: 10px;
   }
 
+/* Link Page Styling */
+.link-container{
+    width: 80% !important;
+}
+.link-input{
+    border-radius: 0px !important;
+    background-color: #fff !important;
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: #212121 !important;
+}
+.link-input:focus{
+    border-color: #212121 !important;
+    
+}
+
+.clipboard-btn{
+    font-weight: 500 !important;
+
+    border-radius: 0px !important;
+    border-color: #212121 !important;
+    background-color: #212121 !important;
+    color: #FFF !important;
+    outline: none !important;
+
+}
+.clipboard-btn:hover{
+    border: 1px solid #212121  !important;
+    box-shadow:  2px 2px 5px 0px rgba(0, 0, 0, 0.3);
+
+}
+.clipboard-btn:focus{
+    outline: none !important;
+    box-shadow: none !important;
+}
+.clipboard-icon{
+    height: 18px;
+    padding-bottom: 2px;
+}
 /* Table styling */
 .channels-table{
     margin-top: 10px;
 }
 
+.sub-btn{
+    background-color: #FE2A2A;
+    font-family: 'Roboto', 'Noto', sans-serif;;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: .007px;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 2px;
+    padding: 8px 14px;
+    outline: none !important;
+
+}
 
 /* animations for slider */
 
@@ -171,6 +224,7 @@ a:active{
               /* width */
 ::-webkit-scrollbar {
     width: 10px;
+    height: 10px;
   }
   
   /* Track */
@@ -198,3 +252,40 @@ a:active{
     li a:focus{
         box-shadow:none !important;
     }
+
+
+    /* Responsive */
+    /* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .page-headline{
+        font-size: 2.2rem;
+    }
+    .lead{
+        font-size: 1.2rem !important;
+        margin-bottom: 0px !important;
+    }
+    .channels-table{
+        font-size: .8rem;
+        padding-bottom: 3rem;
+    }
+  }
+  
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
+    .example {background: green;}
+  }
+  
+  /* Medium devices (landscape tablets, 768px and up) */
+  @media only screen and (min-width: 768px) {
+    .example {background: blue;}
+  } 
+  
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (min-width: 992px) {
+    .example {background: orange;}
+  } 
+  
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
+  @media only screen and (min-width: 1200px) {
+    .example {background: pink;}
+  }

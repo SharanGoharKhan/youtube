@@ -25,13 +25,15 @@
     <header>
             <div class="main_header" >
                     <div class="container">
-                        <h1 class=" page-headline">ShareMySubs</h1>
+                        <a href="/">
+                            <h1 class=" page-headline">ShareMySubs</h1>
+                        </a>
                         <p class="lead">Share your Youtube's Subscribed Channels with just a few clicks.</p>
                     </div>
             </div>
     </header>
     <main class=" page_main ">
-        <div id="main_container" class="container main_body ">
+        <div id="main_container" class="container  ">
             {{{body}}}
         </div>
 
@@ -62,15 +64,35 @@
   
     <script>
         $(document).ready(function () {
-            channelsTable = null
+            let channelsTable = null
+            let show_description = {targets:[1], visible:true}
+            let screen_width = $( window ).width()
+            show_description.visible = screen_width <= 600? false: true
+
+
             if($("#myTable"))
                 channelsTable = $('#myTable').DataTable({
                     "paging":   true,
-                        "ordering": true,
-                        "info":     false,
+                    "ordering": false,
+                    "info":     false,
                           "scrollY": "370px",
-  "scrollCollapse": true,
+                    "scrollCollapse": true,
+                    "language": {
+                        "paginate":
+                         {
+                            "previous": "Prev"
+                        }
+                    },
+                    "columnDefs": [
+                        show_description
+                        ]
                 })
+         
+        // Get the column API object
+        //let column = channelsTable.column( 1 );
+ 
+        // Toggle the visibility
+        //column.visible( ! column.visible() );
         })
     </script>
 
