@@ -25,6 +25,7 @@ router.get('/:id', (req, res) => {
             res.json(response.failure(userid, 'no user found against this userid'))
             return
         }
+        console.log(user.channels)
         res.render('channels', { channels: user.channels })
     })
 })

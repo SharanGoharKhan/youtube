@@ -78,10 +78,17 @@ function handleLoginClick(){
 function setSigninStatus(isSignedIn) {
     var user = GoogleAuth.currentUser.get()
     var isAuthorized = user.hasGrantedScopes(SCOPE)
-    if (isAuthorized) {
+    let url_tokens = window.location.href.toLowerCase().split('/');
 
-        // if it is on callencer/link
-        if( window.location.href.split('/').length == 5   )
+    // Check for static links first
+    if( url_tokens.includes("privacy") )
+        return null;
+
+    
+    if (isAuthorized ) {
+
+        // if it is on channels/link
+        if( url_tokens.length  == 5   )
         {
             // do nothing
             // remove flex from main container though
@@ -152,7 +159,8 @@ function getSubscribedList(pageToken) {
                 channelId: channel.snippet.resourceId.channelId,
                 // LENGTH CHECKS,
                 description:channel.snippet.description.length>80?channel.snippet.description.substring(0,80)+"...":channel.snippet.description,
-                title: channel.snippet.title > 35? channel.snippet.title.substring(0,35)+"...":channel.snippet.title
+                title: channel.snippet.title > 35? channel.snippet.title.substring(0,35)+"...":channel.snippet.title,
+                thumbnail_url: channel.snippet.thumbnails.default.url
             }
             channelsList.push(c)
         })
