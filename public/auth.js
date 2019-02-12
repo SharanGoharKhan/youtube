@@ -83,7 +83,8 @@ function setSigninStatus(isSignedIn) {
     // Check for static links first
     if (url_tokens.includes("privacy"))
         return null;
-
+    if (url_tokens.includes("channels"))
+        return null;
 
     if (isAuthorized) {
 
@@ -95,14 +96,14 @@ function setSigninStatus(isSignedIn) {
         }
         else {
             fetch('/link')
-            .then(data => data.text())
-            .then(view => { $('#main_container').html(view) })
-            .catch(err => { console.log(err) })
-            
+                .then(data => data.text())
+                .then(view => { $('#main_container').html(view) })
+                .catch(err => { console.log(err) })
+
         }
-       
+
         getData() //load channel list, subscription list and user profile
-        
+
     } else {
         fetch('/default')
             .then(data => data.text())
@@ -223,9 +224,9 @@ function copyClipboard() {
     var copyText = document.getElementById("link-input");
     /* Select the text field */
     copyText.select();
-    
+
     /* Copy the text inside the text field */
     document.execCommand("copy");
-  
+
     /* Alert the copied text */
-  }
+}
