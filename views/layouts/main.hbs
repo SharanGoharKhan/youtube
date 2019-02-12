@@ -39,10 +39,11 @@
             {{{body}}}
         </div>
         <footer class="fixed-bottom main_footer ">
-            <div class="container main_footer-content">
-                <div class="main_footer-content--inner">
-                    <p>Powered By NinjasCode <a href="privacy">Privacy</a> · <a href="#">Terms</a></p>
-                    <p class=""><a href="#">Donate</a></p>
+                <div class="container main_footer-content">
+                    <div class="main_footer-content--inner">
+                        <p>Powered By NinjasCode <a href="/privacy">Privacy</a> · <a href="#">Terms</a></p>
+                        <p class=""><a href="#">Donate</a></p>
+                    </div>
                 </div>
             </div>
         </footer>
@@ -65,9 +66,9 @@
     <script>
         $(document).ready(function () {
             let channelsTable = null
-            let show_description = { targets: [1], visible: true }
-            let screen_width = $(window).width()
-            show_description.visible = screen_width <= 600 ? false : true
+            let show_description = {targets:[2], visible:true}
+            let screen_width = $( window ).width()
+            show_description.visible = screen_width <= 600? false: true
 
 
             if ($("#myTable"))
@@ -85,6 +86,14 @@
                     },
                     "columnDefs": [
                         show_description
+                        ],
+                    bAutoWidth: false, 
+                    aoColumns : [
+                        { sWidth: '5%' },
+                        { sWidth: '20%' },
+                        { sWidth: '65%' },
+                        { sWidth: '10%' },
+                     
                     ]
                 })
 
