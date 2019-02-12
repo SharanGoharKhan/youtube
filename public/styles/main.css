@@ -187,6 +187,8 @@ a:active{
     border-radius: 2px;
     padding: 8px 14px;
     outline: none !important;
+    padding-left: 8px;
+    padding-right: 8px;
 }
 
 /* animations for slider */
@@ -298,23 +300,41 @@ a:active{
         padding-left: 6px !important; 
     }
   }
-  
+
+  @media only screen and (min-width: 600px  ) and (max-height:750px){
+    .page-headline{
+        font-size: 2.5rem;
+    }
+    .main_body{
+        height: 300px;
+    }
+    .channels-table{
+        font-size: 0.95rem;
+    }
+
+    .main_header{
+        height: 18vh;
+    }
+    .table_img{
+        height:24px;
+        width: 24px;
+    }
+    .sub-btn{
+    padding: 2px 16px;
+    }
+  }
   /* Small devices (portrait tablets and large phones, 600px and up) */
   @media only screen and (min-width: 600px) {
-    .example {background: green;}
   }
   
   /* Medium devices (landscape tablets, 768px and up) */
   @media only screen and (min-width: 768px) {
-    .example {background: blue;}
   } 
   
   /* Large devices (laptops/desktops, 992px and up) */
   @media only screen and (min-width: 992px) {
-    .example {background: orange;}
   } 
   
   /* Extra large devices (large laptops and desktops, 1200px and up) */
   @media only screen and (min-width: 1200px) {
-    .example {background: pink;}
   }
