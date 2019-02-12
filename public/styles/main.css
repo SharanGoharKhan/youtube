@@ -150,6 +150,9 @@ a:active{
 }
 
 /* Table styling */
+.odd{
+    background-color: rgba(254, 42, 42, 0.048) !important;
+}
 .channels-table{
     margin-top: 10px;
 }
@@ -164,6 +167,20 @@ a:active{
     font-size: 14px;
     font-weight: 600;
     color: #fff;
+    letter-spacing: .007px;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 2px;
+    padding: 8px 14px;
+    outline: none !important;
+}
+
+.subbed-btn{
+    background-color: hsl(0, 0%, 93.3%);
+    color: hsla(0, 0%, 6.7%, .6);
+    font-family: 'Roboto', 'Noto', sans-serif;;
+    font-size: 14px;
+    font-weight: 600;
     letter-spacing: .007px;
     text-transform: uppercase;
     border: none;

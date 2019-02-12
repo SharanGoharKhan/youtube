@@ -43,7 +43,9 @@ function executeRequest(request) {
         if (response.error)
             alert('Couldnt subscribe')
         else
-            $(("#" + response.snippet.resourceId.channelId)).hide()
+            $(("#" + response.snippet.resourceId.channelId)).attr('class', 'subbed-btn');
+            $(("#" + response.snippet.resourceId.channelId)).text('SUBSCRIBED');
+
     });
 }
 
