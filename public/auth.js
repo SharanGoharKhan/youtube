@@ -44,7 +44,7 @@ function initClient() {
         $('#main-btn').click(function () {
             handleAuthClick()
         })
-        
+
     })
 }
 
@@ -64,7 +64,7 @@ function revokeAccess() {
 }
 
 // UI compatible version- alternate to handleAuthClick()
-function handleLoginClick(){
+function handleLoginClick() {
     if (GoogleAuth.isSignedIn.get()) {
         // User is authorized and has clicked 'Sign out' button.
         GoogleAuth.signOut()
@@ -81,63 +81,33 @@ function setSigninStatus(isSignedIn) {
     let url_tokens = window.location.href.toLowerCase().split('/');
 
     // Check for static links first
-    if( url_tokens.includes("privacy") )
+    if (url_tokens.includes("privacy"))
         return null;
 
-    
-    if (isAuthorized ) {
+
+    if (isAuthorized) {
 
         // if it is on channels/link
-        if( url_tokens.length  == 5   )
-        {
+        if (url_tokens.length == 5) {
             // do nothing
             // remove flex from main container though
             //$("#main_container").removeClass("main_body")
         }
-        else{
-            $('#main_container').html("<div id=\"main_body\" class=\"main_body\"></div>")
-            $("#main_body").html(`
-            <h3>Your link is generated</h3>
-
-                <div class="link-container input-group mb-3">
-                    <input id="link-input" readonly type="text" class="form-control link-input" placeholder="Link" >
-                    <div  class="input-group-append">
-                    <button id="clipboard-btn" class="btn btn-outline-secondary  clipboard-btn" type="button">
-                        <img class="clipboard-icon" src="/images/clipboard-with-pencil-.svg" />
-                        Copy
-                    
-                    </button>
-                    </div>
-                </div> 
-                </a><a href="#" id="a-sharedlink" target="blank">Go To Link</a>  
-
-
-               `)
-            $("#main_body").append("<a href=\"#\" id=\"main-btn\">DEBG- Sign Out</a>")
-            $('#main-btn').click(function () {
-                handleAuthClick()
-            })
+        else {
+            fetch('/link')
+            .then(data => data.text())
+            .then(view => { $('#main_container').html(view) })
+            .catch(err => { console.log(err) })
+            
         }
-        //$('#sign-in-or-out-button').html('Sign out')
-        //$('#revoke-access-button').css('display', 'inline-block')
-        //$('#auth-status').html('You are currently signed in and have granted ' +
-        //    'access to this app.')
+       
         getData() //load channel list, subscription list and user profile
-        //$(".authenicate-request-text").hide()
-        //$(".link-container").show()
+        
     } else {
-        $('#main_container').html("<div id=\"main_body\" class=\"main_body\"></div>")
-        $("#main_body").html("<button id=\"main-btn\"  class=\"main_body-btn center-block\"><img class height=\"60px\" style=\" color: #fff;\"  width=\"56px\" src=\"/images/play-button.svg\" > LET\'S DO IT </button><p class=\"main_body-text\"> Share Subscribed Channels </p>   ")
-        $('#main-btn').click(function () {
-            handleAuthClick()
-        })
-        //$('#sign-in-or-out-button').html('Sign In/Authorize')
-        //$('#revoke-access-button').css('display', 'none')
-        //$('#auth-status').html('You have not authorized this app or you are ' +
-        //    'signed out.')
-
-        //$(".authenicate-request-text").show()
-        //$(".link-container").hide()
+        fetch('/default')
+            .then(data => data.text())
+            .then(view => { $('#main_container').html(view) })
+            .catch(err => { console.log(err) })
     }
 }
 
@@ -153,13 +123,13 @@ function getSubscribedList(pageToken) {
     })
     // Execute the API request.
     request.execute(function (response) {
-        console.log(response.items)
+        // console.log(response.items)
         response.items.forEach(channel => {
             let c = {
                 channelId: channel.snippet.resourceId.channelId,
                 // LENGTH CHECKS,
-                description:channel.snippet.description.length>80?channel.snippet.description.substring(0,80)+"...":channel.snippet.description,
-                title: channel.snippet.title > 35? channel.snippet.title.substring(0,35)+"...":channel.snippet.title,
+                description: channel.snippet.description.length > 80 ? channel.snippet.description.substring(0, 80) + "..." : channel.snippet.description,
+                title: channel.snippet.title > 35 ? channel.snippet.title.substring(0, 35) + "..." : channel.snippet.title,
                 thumbnail_url: channel.snippet.thumbnails.default.url
             }
             channelsList.push(c)
@@ -179,9 +149,9 @@ function getSubscribedList(pageToken) {
                 body: JSON.stringify({ userid, channelsList })
             })
                 .then(response => response.json())
-                .then(data => { console.log(data) })
+                .then(data => { /*console.log(data)*/ })
                 .catch(err => {
-                    console.error(err)
+                    /*console.error(err)*/
                 })
         }
     })
@@ -198,8 +168,8 @@ function getLikedVideos(pageToken) {
         likedVideos = likedVideos.concat(response.items)
         if (response.nextPageToken)
             getLikedVideos(response.nextPageToken)
-        else
-            console.log(likedVideos)
+        // else
+        //     console.log(likedVideos)
     })
 }
 function getData() {
@@ -207,6 +177,7 @@ function getData() {
     //getLikedVideos()
     getSubscribedList()
     getSharedLink()
+
 }
 
 function getSharedLink() {
@@ -218,9 +189,9 @@ function getSharedLink() {
         imageUrl: profile.getImageUrl(),
         email: profile.getEmail()
     }
-    $('#link-input').attr(  'value', $(location).attr('origin')+'/channels/' + data.userid)
+    $('#link-input').attr('value', $(location).attr('origin') + '/channels/' + data.userid)
     $('#a-sharedlink').attr('href', '/channels/' + data.userid)
-    $('#txt-sharedlink').text($(location).attr('protocol')+$(location).attr('host')+'/channels/' + data.userid)
+    $('#txt-sharedlink').text($(location).attr('protocol') + $(location).attr('host') + '/channels/' + data.userid)
 }
 
 function getUserProfile() {
@@ -240,8 +211,8 @@ function getUserProfile() {
         body: JSON.stringify(data)
     })
         .then(response => response.json())
-        .then(data => { console.log(data) })
+        .then(data => { /*console.log(data)*/ })
         .catch(err => {
-            console.error(err)
+            /*console.error(err)*/
         })
 }

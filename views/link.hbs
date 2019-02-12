@@ -1,0 +1,20 @@
+<div id="main_body" class="main_body">
+    <h3>Your link is generated</h3>
+
+    <div class="link-container input-group mb-3">
+        <input id="link-input" readonly type="text" class="form-control link-input" placeholder="Link">
+        <div class="input-group-append">
+            <button id="clipboard-btn" class="btn btn-outline-secondary  clipboard-btn" type="button">
+                <img class="clipboard-icon" src="/images/clipboard-with-pencil-.svg" />
+                Copy
+
+            </button>
+        </div>
+    </div>
+    </a><a href="#" id="a-sharedlink" target="blank">Go To Link</a>
+</div>
+<a href="#" class="main-btn" id="main-btn">DEBG- Sign Out</a>
+<script>
+    $('#main-btn').on('click', function () { handleAuthClick() })
+    getSharedLink()
+</script>

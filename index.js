@@ -75,7 +75,12 @@ app.use('/channels', channels)
 app.get('/', (req, res) => {
     res.render('home')
 })
-
+app.get('/link', (req, res) => {
+    res.render('link', { layout: false })
+})
+app.get('/default', (req, res) => {
+    res.render('default', { layout: false })
+})
 app.get('/privacy', (req, res) => {
     res.render('privacy')
 })

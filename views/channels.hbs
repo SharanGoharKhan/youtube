@@ -1,26 +1,26 @@
-
-
 <div class="channels-table ">
 
     <table id="myTable" class="table  table-sm table-striped table-bordered">
         <thead>
             <tr>
                 <th> Img </th>
-                <th >Title</th>
-                <th >Description</th>
+                <th>Title</th>
+                <th>Description</th>
 
-                <th >Subscribe</th>
+                <th>Subscribe</th>
             </tr>
         </thead>
         <tbody>
             {{#each channels}}
             <tr>
-                <td class="img-col align-middle"> <img class="table_img" src="{{thumbnail_url}}"  height="40px" width="40px"/> </td>
+                <td class="img-col align-middle"> <img class="table_img" src="{{thumbnail_url}}" height="40px"
+                        width="40px" /> </td>
                 <td>{{title}}</td>
                 <td>
-                    {{ description}}                    
+                    {{ description}}
                 <td class="align-middle">
-                    <button class="sub-btn" id='{{channelId}}'  onclick="defineRequest('{{channelId}}')">Subscribe</button>
+                    <button class="sub-btn" id='{{channelId}}'
+                        onclick="defineRequest('{{channelId}}')">Subscribe</button>
                     {{!-- <a href="https://www.youtube.com/channel/{{channelId}}?sub_confirmation=1" target="_blank">Subscribe</a>
                     --}}
                 </td>
@@ -30,3 +30,11 @@
     </table>
 </div>
 
+<script>
+
+ console.log(channelsList)
+        /*channelsList.map(function (value, index) {
+            console.log(value)
+        })*/
+    
+</script>
