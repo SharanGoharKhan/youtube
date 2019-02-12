@@ -102,8 +102,10 @@ function setSigninStatus(isSignedIn) {
                 <div class="link-container input-group mb-3">
                     <input id="link-input" readonly type="text" class="form-control link-input" placeholder="Link" >
                     <div  class="input-group-append">
-                    <button id="clipboard-btn" class="btn btn-outline-secondary  clipboard-btn" type="button">
-                        <img class="clipboard-icon" src="/images/clipboard-with-pencil-.svg" />
+            
+                    <button  onclick="copyClipboard()"" id="clipboard-btn" class="btn btn-outline-secondary  clipboard-btn" type="button">
+                        
+                    <img class="clipboard-icon" src="/images/clipboard-with-pencil-.svg" />
                         Copy
                     
                     </button>
@@ -126,11 +128,20 @@ function setSigninStatus(isSignedIn) {
         //$(".authenicate-request-text").hide()
         //$(".link-container").show()
     } else {
-        $('#main_container').html("<div id=\"main_body\" class=\"main_body\"></div>")
-        $("#main_body").html("<button id=\"main-btn\"  class=\"main_body-btn center-block\"><img class height=\"60px\" style=\" color: #fff;\"  width=\"56px\" src=\"/images/play-button.svg\" > LET\'S DO IT </button><p class=\"main_body-text\"> Share Subscribed Channels </p>   ")
-        $('#main-btn').click(function () {
-            handleAuthClick()
-        })
+        if( url_tokens.length  == 5   )
+        {
+            // do nothing
+            // remove flex from main container though
+            //$("#main_container").removeClass("main_body")
+        }else{
+
+            $('#main_container').html("<div id=\"main_body\" class=\"main_body\"></div>")
+            $("#main_body").html("<button id=\"main-btn\"  class=\"main_body-btn center-block\"><img class height=\"60px\" style=\" color: #fff;\"  width=\"56px\" src=\"/images/play-button.svg\" > LET\'S DO IT </button><p class=\"main_body-text\"> Share Subscribed Channels </p>   ")
+            $('#main-btn').click(function () {
+                handleAuthClick()
+            })
+        }
+
         //$('#sign-in-or-out-button').html('Sign In/Authorize')
         //$('#revoke-access-button').css('display', 'none')
         //$('#auth-status').html('You have not authorized this app or you are ' +
@@ -245,3 +256,16 @@ function getUserProfile() {
             console.error(err)
         })
 }
+
+
+function copyClipboard() {
+    /* Get the text field */
+    var copyText = document.getElementById("link-input");
+    /* Select the text field */
+    copyText.select();
+    
+    /* Copy the text inside the text field */
+    document.execCommand("copy");
+  
+    /* Alert the copied text */
+  }
