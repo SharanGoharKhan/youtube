@@ -213,6 +213,9 @@ a:active{
     font-weight: 400;
     letter-spacing: 1px;
 }
+.ninjas_code_ltd:hover .ninjas_code_ltd{
+    color: #f44336;
+}
 .code-ltd{
     color: #212529;
 }

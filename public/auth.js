@@ -79,7 +79,7 @@ function setSigninStatus(isSignedIn) {
     var user = GoogleAuth.currentUser.get()
     var isAuthorized = user.hasGrantedScopes(SCOPE)
     let url_tokens = window.location.href.toLowerCase().split('/');
-    getData()
+   if(isAuthorized) getData()
     // Check for static links first
     if (url_tokens.includes("privacy"))
         return null;
