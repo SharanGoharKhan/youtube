@@ -20,7 +20,7 @@
                     {{ description}}
                 <td class="align-middle">
                     <button class="sub-btn" id='{{channelId}}'
-                        onclick="defineRequest('{{channelId}}')">Subscribe</button>
+                        onclick="defineRequest('{{channelId}}')">Subscribe </button>
                     {{!-- <a href="https://www.youtube.com/channel/{{channelId}}?sub_confirmation=1" target="_blank">Subscribe</a>
                     --}}
                 </td>
@@ -28,11 +28,12 @@
             {{/each}}
         </tbody>
     </table>
+    {{name}}
 </div>
 
 <script>
     Swal.fire({
-        title: '{{name}}',
+        title: '',
         text: '{Wellcome Message Text}',
         imageUrl: '/images/avatar.png',
         imageWidth: 200,
