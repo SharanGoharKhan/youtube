@@ -79,7 +79,7 @@ function setSigninStatus(isSignedIn) {
     var user = GoogleAuth.currentUser.get()
     var isAuthorized = user.hasGrantedScopes(SCOPE)
     let url_tokens = window.location.href.toLowerCase().split('/');
-   if(isAuthorized) getData()
+    if (isAuthorized) getData()
     // Check for static links first
     if (url_tokens.includes("privacy"))
         return null;
@@ -201,9 +201,9 @@ function getSharedLink() {
         imageUrl: profile.getImageUrl(),
         email: profile.getEmail()
     }
-    $('#link-input').attr('value', $(location).attr('origin') + '/channels/' + data.userid)
-    $('#a-sharedlink').attr('href', '/channels/' + data.userid)
-    $('#txt-sharedlink').text($(location).attr('protocol') + $(location).attr('host') + '/channels/' + data.userid)
+    $('#link-input').attr('value', $(location).attr('origin') + '/channels/@' + data.email.split('@')[0])
+    $('#a-sharedlink').attr('href', '/channels/@' + data.email.split('@')[0])
+    $('#txt-sharedlink').text($(location).attr('protocol') + $(location).attr('host') + '/channels/@' + data.email.split('@')[0])
 }
 
 function getUserProfile() {
@@ -231,20 +231,20 @@ function getUserProfile() {
 
 
 function copyClipboard() {
-    if(!isIntervalInProgress){
+    if (!isIntervalInProgress) {
         // animation start
         $(" .copy-text").textrotator({
             animation: "flip",
             speed: 1000
-          });
+        });
         /* Get the text field */
         var copyText = document.getElementById("link-input");
         /* Select the text field */
         copyText.select();
-    
+
         /* Copy the text inside the text field */
         document.execCommand("copy");
-    
+
         /* Alert the copied text */
     }
 

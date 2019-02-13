@@ -19,7 +19,8 @@ router.post('/', (req, res) => {
         userid: req.body.userid,
         email: req.body.email,
         name: req.body.name,
-        imageUrl: req.body.imageUrl
+        imageUrl: req.body.imageUrl,
+        username: '@' + req.body.email.split('@')[0]
     })
     User.countDocuments({ email: req.body.email }, (err, count) => {
         if (count > 0) {
