@@ -126,19 +126,29 @@ a:active{
     
 }
 
+.link_page_avatar{
+    border-radius: 50px;
+}
+.link_page_heading_username{
+    padding-top: 10px;
+}
+.link_page_heading_text{
+    padding-bottom: 5px;
+}
+
 .clipboard-btn{
     font-weight: 500 !important;
     width: 90px;
     border-radius: 0px !important;
-    border-color: #212121 !important;
-    background-color: #212121 !important;
+    border-color: #f44336 !important;
+    background-color: #f44336 !important;
     color: #FFF !important;
     outline: none !important;
 
 }
 .clipboard-btn:hover{
-    border: 1px solid #212121  !important;
-    box-shadow:  2px 2px 5px 0px rgba(0, 0, 0, 0.3);
+    border: 1px solid #f44336  !important;
+    box-shadow:  2px 2px 5px 0px #f443361f;
 
 }
 .clipboard-btn:focus{
@@ -356,8 +366,8 @@ a:active{
     padding: 2px 16px;
     }
     .swal2-image{
-        width: 150px !important;
-        height: 150px !important;
+        width: 120px !important;
+        height: 120px !important;
     }
   }
   /* Small devices (portrait tablets and large phones, 600px and up) */
