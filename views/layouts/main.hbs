@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
 
     <link href="https://fonts.googleapis.com/css?family=Monoton|Roboto|Oswald" rel="stylesheet">
-    <link rel='stylesheet' type="text/css"  href='/assets/sweetalerts/sweetalert2.css'>
+    <link rel='stylesheet' type="text/css" href='/assets/sweetalerts/sweetalert2.css'>
 
 
     <script src="https://apis.google.com/js/platform.js"></script>
@@ -23,7 +23,7 @@
         </script>
 
 
- 
+
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script>
         (adsbygoogle = window.adsbygoogle || []).push({
@@ -55,7 +55,7 @@
         <footer class="fixed-bottom main_footer ">
             <div class="container main_footer-content">
                 <div class="main_footer-content--inner">
-                    <p>Powered By NinjasCode  </p>
+                    <p>Powered By NinjasCode </p>
                     <a href="/privacy">Privacy</a>
                 </div>
             </div>
@@ -79,39 +79,39 @@
 
 
     <script>
+        var channelsTable = null
+        var show_description = { targets: [2], visible: true }
+        var screen_width = $(window).width()
+        function initializeTable() {
+            channelsTable = $('#myTable').DataTable({
+                "paging": true,
+                "ordering": false,
+                "info": false,
+                "scrollY": "370px",
+                "scrollCollapse": true,
+                "language": {
+                    "paginate":
+                    {
+                        "previous": "Prev"
+                    }
+                },
+                "columnDefs": [
+                    show_description
+                ],
+                bAutoWidth: false,
+                aoColumns: [
+                    { sWidth: '5%' },
+                    { sWidth: '20%' },
+                    { sWidth: '65%' },
+                    { sWidth: '10%' },
+
+                ]
+            })
+        }
         $(document).ready(function () {
-            
-            let channelsTable = null
-            let show_description = { targets: [2], visible: true }
-            let screen_width = $(window).width()
             show_description.visible = screen_width <= 600 ? false : true
-
-
             if ($("#myTable"))
-                channelsTable = $('#myTable').DataTable({
-                    "paging": true,
-                    "ordering": false,
-                    "info": false,
-                    "scrollY": "370px",
-                    "scrollCollapse": true,
-                    "language": {
-                        "paginate":
-                        {
-                            "previous": "Prev"
-                        }
-                    },
-                    "columnDefs": [
-                        show_description
-                    ],
-                    bAutoWidth: false,
-                    aoColumns: [
-                        { sWidth: '5%' },
-                        { sWidth: '20%' },
-                        { sWidth: '65%' },
-                        { sWidth: '10%' },
-
-                    ]
-                })
+                initializeTable()
 
             // if the user in on view channels link page; then show a Modal with wellcome message
             //console.log(window.location.href.toLowerCase().split('/')) 
