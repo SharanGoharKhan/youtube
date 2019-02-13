@@ -125,6 +125,9 @@ a:active{
     border-color: #212121 !important;
     
 }
+.link_page_heading_username{
+    font-size: 1.2rem;
+}
 
 .link_page_avatar{
     border-radius: 50px;
