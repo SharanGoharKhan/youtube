@@ -127,7 +127,7 @@ a:active{
 
 .clipboard-btn{
     font-weight: 500 !important;
-
+    width: 90px;
     border-radius: 0px !important;
     border-color: #212121 !important;
     background-color: #212121 !important;

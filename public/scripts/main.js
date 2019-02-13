@@ -10,7 +10,7 @@
  * https://github.com/peachananr/simple-text-rotator
  *
  * ========================================================== */
-
+var isIntervalInProgress = false;
 !function($){
   
     var defaults = {
@@ -25,7 +25,7 @@
       
     $.fn.textrotator = function(options){
       var settings = $.extend({}, defaults, options);
-      
+      isIntervalInProgress = true;
       return this.each(function(){
   
         var el = $(this)
@@ -50,7 +50,7 @@
                 $('#clipboard-icon').hide()
               }
               else{
-                $('#clipboard-icon').show()
+                $('#clipboard-icon').show(250)
               }
 
               el.html("");
@@ -68,8 +68,11 @@
 
 
               if(index == -1)
+              {
                 clearInterval(interval_id)
-              console.log(index)
+                isIntervalInProgress = false
+              }
+              console.log(isIntervalInProgress)
             break;
             
      
