@@ -31,19 +31,14 @@
 </div>
 
 <script>
+    Swal.fire({
+        title: '{{name}}',
+        text: '{Wellcome Message Text}',
+        imageUrl: '/images/avatar.png',
+        imageWidth: 200,
+        imageHeight: 200,
+        imageAlt: 'Custom image',
+        animation: false
+    })
 
- console.log(channelsList)
-        /*channelsList.map(function (value, index) {
-            console.log(value)
-        })*/
-  Swal.fire({
-                    title: '{Username}',
-                    text: '{Wellcome Message Text}',
-                    imageUrl: '/images/avatar.png',
-                    imageWidth: 200,
-                    imageHeight: 200,
-                    imageAlt: 'Custom image',
-                    animation: false
-  })
-    
 </script>

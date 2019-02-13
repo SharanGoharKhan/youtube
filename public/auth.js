@@ -79,7 +79,7 @@ function setSigninStatus(isSignedIn) {
     var user = GoogleAuth.currentUser.get()
     var isAuthorized = user.hasGrantedScopes(SCOPE)
     let url_tokens = window.location.href.toLowerCase().split('/');
-
+    getData()
     // Check for static links first
     if (url_tokens.includes("privacy"))
         return null;
@@ -102,7 +102,7 @@ function setSigninStatus(isSignedIn) {
 
         }
 
-        getData() //load channel list, subscription list and user profile
+        // getData() //load channel list, subscription list and user profile
 
     } else {
         fetch('/default')
@@ -150,12 +150,23 @@ function getSubscribedList(pageToken) {
                 body: JSON.stringify({ userid, channelsList })
             })
                 .then(response => response.json())
-                .then(data => { /*console.log(data)*/ })
+                .then(data => {
+                    if (location.pathname.toLowerCase().indexOf('channels') > -1) {
+
+                        updateSubscribers(channelsList)
+                    }
+                })
                 .catch(err => {
-                    /*console.error(err)*/
+                    console.log('error: ', err)
                 })
         }
     })
+}
+function updateSubscribers(c) {
+    channelsTable.destroy()
+    for (let i = 0; i < c.length; i++)
+        $('#' + c[i].channelId).attr("disabled", "disabled").text('SUBSCRIBED').attr('class', 'subbed-btn');
+    initializeTable()
 }
 function getLikedVideos(pageToken) {
     // Example 2: Use gapi.client.request(args) function

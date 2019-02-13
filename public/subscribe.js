@@ -44,7 +44,7 @@ function executeRequest(request) {
             alert('Couldnt subscribe')
         else
             $(("#" + response.snippet.resourceId.channelId)).attr('class', 'subbed-btn');
-            $(("#" + response.snippet.resourceId.channelId)).text('SUBSCRIBED');
+        $(("#" + response.snippet.resourceId.channelId)).text('SUBSCRIBED');
 
     });
 }
@@ -76,7 +76,7 @@ function buildApiRequest(requestMethod, path, params, properties) {
 function defineRequest(channelId) {
     // See full sample for buildApiRequest() code, which is not 
     // specific to a particular API or API method.
-    if (!GoogleAuth.isSignedIn.get()) GoogleAuth.signIn()
+    if (GoogleAuth && !GoogleAuth.isSignedIn.get()) GoogleAuth.signIn()
     else
         buildApiRequest('POST',
             '/youtube/v3/subscriptions',
