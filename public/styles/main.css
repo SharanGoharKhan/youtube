@@ -191,6 +191,15 @@ a:active{
     padding-right: 8px;
 }
 
+/* Sweet Alert Styling */
+.swal2-image{
+    border-radius: 100px !important;
+}
+.swal2-confirm{
+    background-color: #f44336 !important;
+    box-shadow:  0 0 0 2px #fff, 0 0 0 4px rgba(244, 67, 54, 0.4) !important ;
+}
+
 /* animations for slider */
 
 .sk-wave {
@@ -299,6 +308,11 @@ a:active{
         padding-right: 0px !important;
         padding-left: 6px !important; 
     }
+    .swal2-image{
+        width: 100px !important;
+        height: 100px !important;
+    }
+
   }
 
   @media only screen and (min-width: 600px  ) and (max-height:750px){
@@ -321,6 +335,10 @@ a:active{
     }
     .sub-btn{
     padding: 2px 16px;
+    }
+    .swal2-image{
+        width: 150px !important;
+        height: 150px !important;
     }
   }
   /* Small devices (portrait tablets and large phones, 600px and up) */

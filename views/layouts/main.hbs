@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
 
     <link href="https://fonts.googleapis.com/css?family=Monoton|Roboto|Oswald" rel="stylesheet">
+    <link rel='stylesheet' type="text/css"  href='/assets/sweetalerts/sweetalert2.css'>
 
 
     <script src="https://apis.google.com/js/platform.js"></script>
@@ -20,14 +21,16 @@
         onreadystatechange="if (this.readyState === 'complete') this.onload()">
         </script>
 
-        <!-- Global site tag (gtag.js) - Google Analytics -->
+
  
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-4386444239255491",
-    enable_page_level_ads: true
-  });
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-4386444239255491",
+        enable_page_level_ads: true
+    });
+
+  
 </script>
 
 </head>
@@ -74,6 +77,8 @@
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://apis.google.com/js/platform.js"></script>
 
+    <script src="/assets/sweetalerts/sweetalert2.js"></script>
+
     <script>
         $(document).ready(function () {
             
@@ -108,6 +113,17 @@
 
                     ]
                 })
+            Swal.fire({
+                title: '{Username}',
+                text: '{Wellcome Message Text}',
+                imageUrl: '/images/avatar.png',
+                imageWidth: 200,
+                imageHeight: 200,
+                imageAlt: 'Custom image',
+                animation: false
+            })
+            // if the user in on view channels link page; then show a Modal with wellcome message
+
 
             // Get the column API object
             //let column = channelsTable.column( 1 );
