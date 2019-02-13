@@ -5,7 +5,7 @@
     <meta name="google-site-verification" content="641Cf9hD6dJ6zjFtoP7y8llXvT-pcCjd1gA11f8BFtg" />
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{title}}</title>
+    <title>ShareMySubs</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="/styles/main.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
@@ -40,7 +40,6 @@
 </head>
 
 <body>
-    <header>
         <div class="main_header">
             <div class="container">
                 <a href="/">
@@ -49,25 +48,24 @@
                 <p class="lead">Share your Youtube's Subscribed Channels with just a few clicks.</p>
             </div>
         </div>
-    </header>
     <main class=" page_main ">
         <div id="main_container" class="container  ">
             {{{body}}}
         </div>
-        <footer class="fixed-bottom main_footer ">
-            <div class="container main_footer-content">
-                <div class="main_footer-content--inner">
-                    <p>© 2018 <a class="ninjas_code_ltd" href="https://ninjascode.com/">
-                        NINJAS<span class="code-ltd">CODE</span>
-                        </a>  
-                    </p>
-                    <a href="/privacy">Privacy</a>
-                </div>
-            </div>
-            </div>
-        </footer>
+    
     </main>
-
+    <footer class=" main_footer ">
+        <div class="container main_footer-content">
+            <div class="main_footer-content--inner">
+                <p>© 2018 <a class="ninjas_code_ltd" href="https://ninjascode.com/">
+                    NINJAS<span class="code-ltd">CODE</span>
+                    </a>  
+                </p>
+                <a href="/privacy">Privacy</a>
+            </div>
+        </div>
+        </div>
+    </footer>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
@@ -79,7 +77,6 @@
 
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
-    <script src="https://apis.google.com/js/platform.js"></script>
 
 
     <script>
@@ -91,7 +88,7 @@
                 "paging": true,
                 "ordering": false,
                 "info": false,
-                "scrollY": "370px",
+                "scrollY": "auto",
                 "scrollCollapse": true,
                 "language": {
                     "paginate":

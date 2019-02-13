@@ -26,6 +26,7 @@ router.get('/:id', (req, res) => {
             return
         }
         console.log(user.name)
+        console.log(user.channels)
         res.render('channels', { name: user.name, channels: user.channels })
     })
 })

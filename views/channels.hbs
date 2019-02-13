@@ -1,6 +1,6 @@
 <div class="channels-table ">
 
-    <table id="myTable" class="table  table-sm table-striped table-bordered">
+    <table id="myTable" class="table  table-responsive table-sm table-striped table-bordered">
         <thead>
             <tr>
                 <th> Img </th>
@@ -15,7 +15,9 @@
             <tr>
                 <td class="img-col align-middle"> <img class="table_img" src="{{thumbnail_url}}" height="40px"
                         width="40px" /> </td>
-                <td>{{title}}</td>
+                <td>
+                    <a target="_blank" href="https://www.youtube.com/channel/{{channelId}}">  {{title}}   </a>   
+                </td>
                 <td>
                     {{ description}}
                 <td class="align-middle">
