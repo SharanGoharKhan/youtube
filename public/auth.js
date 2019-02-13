@@ -79,7 +79,7 @@ function setSigninStatus(isSignedIn) {
     var user = GoogleAuth.currentUser.get()
     var isAuthorized = user.hasGrantedScopes(SCOPE)
     let url_tokens = window.location.href.toLowerCase().split('/');
-    if (isAuthorized) getData()
+    if (isAuthorized)  getData()
     // Check for static links first
     if (url_tokens.includes("privacy"))
         return null;
@@ -97,9 +97,23 @@ function setSigninStatus(isSignedIn) {
         else {
             fetch('/link')
                 .then(data => data.text())
-                .then(view => { $('#main_container').html(view) })
+                .then(view => { $('#main_container').html(view)
+                  var user = GoogleAuth.currentUser.get()
+                var profile = user.getBasicProfile()
+                let data = {
+                    userid: profile.getId(),
+                    name: profile.getName(),
+                    imageUrl: profile.getImageUrl(),
+                    email: profile.getEmail()
+                } 
+                $('#link_username').html(data.name)
+                $('#link_avatar').attr('src',data.imageUrl)
+            })
                 .catch(err => { console.log(err) })
 
+
+
+            
         }
 
         // getData() //load channel list, subscription list and user profile
@@ -142,6 +156,7 @@ function getSubscribedList(pageToken) {
             var user = GoogleAuth.currentUser.get()
             var profile = user.getBasicProfile()
             let userid = profile.getId()
+
             fetch('/channels', {
                 method: 'POST',
                 headers: {
@@ -215,6 +230,9 @@ function getUserProfile() {
         imageUrl: profile.getImageUrl(),
         email: profile.getEmail()
     }
+
+
+    
     fetch('/accounts', {
         method: 'POST',
         headers: {
