@@ -113,17 +113,20 @@
 
                     ]
                 })
-            Swal.fire({
-                title: '{Username}',
-                text: '{Wellcome Message Text}',
-                imageUrl: '/images/avatar.png',
-                imageWidth: 200,
-                imageHeight: 200,
-                imageAlt: 'Custom image',
-                animation: false
-            })
-            // if the user in on view channels link page; then show a Modal with wellcome message
 
+            // if the user in on view channels link page; then show a Modal with wellcome message
+            //console.log(window.location.href.toLowerCase().split('/')) 
+            // length is 5 only on channels page
+            if(window.location.href.toLowerCase().split('/').length == 5)
+                Swal.fire({
+                    title: '{Username}',
+                    text: '{Wellcome Message Text}',
+                    imageUrl: '/images/avatar.png',
+                    imageWidth: 200,
+                    imageHeight: 200,
+                    imageAlt: 'Custom image',
+                    animation: false
+                })
 
             // Get the column API object
             //let column = channelsTable.column( 1 );
