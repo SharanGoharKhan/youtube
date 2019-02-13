@@ -15,14 +15,14 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
     "use strict"
     let response = new ApiResponse()
-    let userid = req.params.id
-    User.findOne({ userid }, (err, user) => {
+    let username = req.params.id
+    User.findOne({ username}, (err, user) => {
         if (err) {
             res.json(response.failure(err, 'an error occured while looking for userid'))
             return
         }
         if (!user) {
-            res.json(response.failure(userid, 'no user found against this userid'))
+            res.json(response.failure(username, 'no user found against this userid'))
             return
         }
         res.render('channels', { user: user.name, imageUrl: user.imageUrl, channels: user.channels })
