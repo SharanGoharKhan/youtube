@@ -26,13 +26,12 @@
  
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-        google_ad_client: "ca-pub-4386444239255491",
-        enable_page_level_ads: true
-    });
-
-  
-</script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-4386444239255491",
+            enable_page_level_ads: true
+        });
+    </script>
+    <script src="/assets/sweetalerts/sweetalert2.js"></script>
 
 </head>
 
@@ -78,7 +77,6 @@
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://apis.google.com/js/platform.js"></script>
 
-    <script src="/assets/sweetalerts/sweetalert2.js"></script>
 
     <script>
         $(document).ready(function () {
@@ -118,6 +116,7 @@
             // if the user in on view channels link page; then show a Modal with wellcome message
             //console.log(window.location.href.toLowerCase().split('/')) 
             // length is 5 only on channels page
+            /*
             if(window.location.href.toLowerCase().split('/').length == 5)
                 Swal.fire({
                     title: '{Username}',
@@ -128,7 +127,7 @@
                     imageAlt: 'Custom image',
                     animation: false
                 })
-
+            */
             // Get the column API object
             //let column = channelsTable.column( 1 );
 
