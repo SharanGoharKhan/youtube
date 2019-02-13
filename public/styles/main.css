@@ -200,8 +200,23 @@ a:active{
     box-shadow:  0 0 0 2px #fff, 0 0 0 4px rgba(244, 67, 54, 0.4) !important ;
 }
 
-/* animations for slider */
 
+/* Ninjas Ltd */
+.main_footer{
+    font-size: .9rem;
+    font-variant-east-asian:normal;
+    font-variant-ligatures:normal;
+    font-variant-numeric:normal;    
+}
+.ninjas_code_ltd{
+    font-family: "Open Sans", Helvetica, sans-serif;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+.code-ltd{
+    color: #212529;
+}
+/* animations for slider */
 .sk-wave {
     
     margin: 40px auto;
