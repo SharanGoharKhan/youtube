@@ -16,7 +16,7 @@ router.get('/:id', (req, res) => {
     "use strict"
     let response = new ApiResponse()
     let username = req.params.id
-    User.findOne({ username}, (err, user) => {
+    User.findOne({ username }, (err, user) => {
         if (err) {
             res.json(response.failure(err, 'an error occured while looking for userid'))
             return

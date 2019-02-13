@@ -201,9 +201,9 @@ function getSharedLink() {
         imageUrl: profile.getImageUrl(),
         email: profile.getEmail()
     }
-    $('#link-input').attr('value', $(location).attr('origin') + '/channels/' + data.email.split('@')[0])
-    $('#a-sharedlink').attr('href', '/channels/' + data.email.split('@')[0])
-    $('#txt-sharedlink').text($(location).attr('protocol') + $(location).attr('host') + '/channels/' + data.email.split('@')[0])
+    $('#link-input').attr('value', $(location).attr('origin') + '/channels/@' + data.email.split('@')[0])
+    $('#a-sharedlink').attr('href', '/channels/@' + data.email.split('@')[0])
+    $('#txt-sharedlink').text($(location).attr('protocol') + $(location).attr('host') + '/channels/@' + data.email.split('@')[0])
 }
 
 function getUserProfile() {
