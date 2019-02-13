@@ -5,8 +5,8 @@
         <input id="link-input" readonly type="text" class="form-control link-input" placeholder="Link">
         <div class="input-group-append">
             <button onclick="copyClipboard()" id="clipboard-btn" class="btn btn-outline-secondary  clipboard-btn" type="button">
-                <img class="clipboard-icon" src="/images/clipboard-with-pencil-.svg" />
-                Copy
+                <img id="clipboard-icon" class="clipboard-icon" src="/images/clipboard-with-pencil-.svg" />
+                <span class="copy-text">Copy</span>
 
             </button>
         </div>
@@ -15,6 +15,7 @@
 </div>
 <a href="#" class="main-btn" id="main-btn">DEBG- Sign Out</a>
 <script>
+
     $('#main-btn').on('click', function () { handleAuthClick() })
     getSharedLink()
 </script>

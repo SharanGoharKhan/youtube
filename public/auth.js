@@ -220,6 +220,11 @@ function getUserProfile() {
 
 
 function copyClipboard() {
+    // animation start
+    $(" .copy-text").textrotator({
+        animation: "flip",
+        speed: 1000
+      });
     /* Get the text field */
     var copyText = document.getElementById("link-input");
     /* Select the text field */
