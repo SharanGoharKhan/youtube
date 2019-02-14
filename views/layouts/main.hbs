@@ -34,8 +34,7 @@
                 <a href="/">
                     <h1 class=" page-headline">ShareMySubs</h1>
                 </a>
-                <p class="lead">Authorize with your google account to generate a link to
-                    share your subscriptions.</p>
+                <p class="lead">A simple way to share your youtube subscribtions with other people.</p>
             </div>
         </div>
     <main class=" page_main ">
@@ -97,13 +96,14 @@
                     { sWidth: '65%' },
                     { sWidth: '10%' },
 
-                ]
+                ],
             })
         }
         $(document).ready(function () {
             show_description.visible = screen_width <= 600 ? false : true
             if ($("#myTable"))
                 initializeTable()
+                
 
             // if the user in on view channels link page; then show a Modal with wellcome message
             //console.log(window.location.href.toLowerCase().split('/')) 
