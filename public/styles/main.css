@@ -174,7 +174,7 @@ a:active{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 15rem;
+    width: 12.5rem;
 }
 
 /* Table styling */
