@@ -14,12 +14,15 @@
             </button>
         </div>
     </div>
-    </a><a href="#" id="a-sharedlink" target="blank">Go To Link</a>
-<a href="#" class="main-btn" id="main-btn">DEBG- Sign Out</a>
+    <div class="link-btns-container" >
+        <a href="#" id="a-sharedlink" class="a-goto-link" target="blank">Go To Link</a>
+        <a href="#" id="a-logout" class="a-signout" > Sign Out</a>
+    </div>
+
 
 </div>
 <script>
 
-    $('#main-btn').on('click', function () { handleAuthClick() })
+    $('#a-logout').on('click', function () { handleAuthClick() })
     getSharedLink()
 </script>

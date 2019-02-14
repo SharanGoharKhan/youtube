@@ -166,6 +166,13 @@ a:active{
     padding-bottom: 2px;
 }
 
+.link-btns-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 15rem;
+}
+
 /* Table styling */
 .odd{
     background-color: rgba(254, 42, 42, 0.048) !important;
