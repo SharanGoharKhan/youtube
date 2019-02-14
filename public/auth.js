@@ -223,7 +223,7 @@ function getSharedLink() {
     $('#txt-sharedlink').text($(location).attr('protocol') + $(location).attr('host') + '/channels/@' + data.email.split('@')[0])
     let t = $(location).attr('origin') + '/channels/@' + data.email.split('@')[0]
 
-    let url = "https://www.facebook.com/sharer/sharer.php?u=" + "https://sharemysubs.com/channels/@meee4173" + ";src=sdkpreparse"
+    let url = "https://www.facebook.com/sharer/sharer.php?u=" + t + ";src=sdkpreparse"
     console.log($('.fb-share-button').length)
     $('.fb-share-button').attr("data-href", encodeURI(t))
     $('.a-fb-share-btn').attr("href", encodeURI(url))
