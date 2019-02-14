@@ -186,11 +186,12 @@ a:active{
     padding-top: 10px;
 }
 .channels-table-heading{
+    font-size: 2.2rem;
     font-family: oswald;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
 }
 .channels-table-span{
-    border-bottom: 6px solid black;
+    border-bottom: 0px solid black;
 }
 .img-col{
     padding-right: 0px !important;
@@ -379,13 +380,21 @@ a:active{
         width: 100px !important;
         height: 100px !important;
     }
+    .channels-table-heading{
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: .8rem;
+    }
+    .channels-table-span{
+        border-bottom: 0px;
 
+    }
   }
 
   @media only screen and (min-width: 600px  ) and (max-height:750px){
 
     .page-headline{
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
     .main_body{
         
