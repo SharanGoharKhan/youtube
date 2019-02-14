@@ -219,6 +219,9 @@ function getSharedLink() {
     $('#link-input').attr('value', $(location).attr('origin') + '/channels/@' + data.email.split('@')[0])
     $('#a-sharedlink').attr('href', '/channels/@' + data.email.split('@')[0])
     $('#txt-sharedlink').text($(location).attr('protocol') + $(location).attr('host') + '/channels/@' + data.email.split('@')[0])
+
+    $('#fb-share-btn').attr("data-href",$(location).attr('origin') + '/channels/@' + data.email.split('@')[0] )
+
 }
 
 function getUserProfile() {
