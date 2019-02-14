@@ -79,14 +79,14 @@ function setSigninStatus(isSignedIn) {
     var user = GoogleAuth.currentUser.get()
     var isAuthorized = user.hasGrantedScopes(SCOPE)
     let url_tokens = window.location.href.toLowerCase().split('/');
-    if (isAuthorized) getData()
+
     // Check for static links first
     if (url_tokens.includes("privacy"))
         return null;
-    if (url_tokens.includes("channels"))
+    else if (url_tokens.includes("channels"))
         return null;
 
-    if (isAuthorized) {
+    else if (isAuthorized) {
 
         // if it is on channels/link
         if (url_tokens.length == 5) {
@@ -125,6 +125,7 @@ function setSigninStatus(isSignedIn) {
             .then(view => { $('#main_container').html(view) })
             .catch(err => { console.log(err) })
     }
+    if (isAuthorized) getData()
 }
 
 function updateSigninStatus(isSignedIn) {
@@ -222,8 +223,11 @@ function getSharedLink() {
     $('#txt-sharedlink').text($(location).attr('protocol') + $(location).attr('host') + '/channels/@' + data.email.split('@')[0])
     let t = $(location).attr('origin') + '/channels/@' + data.email.split('@')[0]
 
-    let url = "https://www.facebook.com/sharer/sharer.php?u=" + t + ";src=sdkpreparse"
-    $('#fb-share-btn').attr("data-href", url)
+    let url = "https://www.facebook.com/sharer/sharer.php?u=" + "https://sharemysubs.com/channels/@meee4173" + ";src=sdkpreparse"
+    console.log($('.fb-share-button').length)
+    $('.fb-share-button').attr("data-href", encodeURI(t))
+    $('.a-fb-share-btn').attr("href", encodeURI(url))
+    // a-fb-share-btn
 
 }
 

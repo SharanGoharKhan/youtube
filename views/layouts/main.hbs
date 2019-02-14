@@ -6,14 +6,14 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <meta property="og:url"           content="https://sharemysubs.com" />
-    <meta property="og:type"          content="website" />
-    <meta property="og:title"         content="ShareMySubs" />
-    <meta property="og:description"   content="A simple way of share your Youtube's subscribed channels" />
-    <meta property="og:image"         content="https://sharemysubs.com/site_img.png" />
+    <meta property="og:url" content="https://sharemysubs.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="ShareMySubs" />
+    <meta property="og:description" content="A simple way of share your Youtube's subscribed channels" />
+    <meta property="og:image" content="https://sharemysubs.com/site_img.png" />
 
     <title>ShareMySubs</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="/styles/main.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
@@ -33,41 +33,41 @@
     <script src="/assets/sweetalerts/sweetalert2.js"></script>
     <script src="/scripts/main.js"> </script>
 
-    <!-- fb share -->
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.2';
-        fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-</script>
+
 </head>
 
 </head>
 
 <body>
-        <div class="main_header">
-            <div class="container">
-                <a href="/">
-                    <h1 class=" page-headline">ShareMySubs</h1>
-                </a>
-                <p class="lead">A simple way to share your youtube subscribtions with other people.</p>
-            </div>
+    <div id="fb-root"></div>
+    <script>(function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.2';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <div class="main_header">
+        <div class="container">
+            <a href="/">
+                <h1 class=" page-headline">ShareMySubs</h1>
+            </a>
+            <p class="lead">A simple way to share your youtube subscribtions with other people.</p>
         </div>
+    </div>
     <main class=" page_main ">
         <div id="main_container" class="container main_container ">
             {{{body}}}
         </div>
-    
+
     </main>
     <footer class=" main_footer ">
         <div class="container main_footer-content">
             <div class="main_footer-content--inner">
                 <p>© 2019 <a class="ninjas_code_ltd" target="_blank" href="https://ninjascode.com/">
-                    NINJAS<span class="code-ltd">CODE</span>
-                    </a>  
+                        NINJAS<span class="code-ltd">CODE</span>
+                    </a>
                 </p>
                 <a href="/privacy">Privacy</a>
             </div>
@@ -98,7 +98,7 @@
                 "info": false,
                 "scrollY": "auto",
                 "scrollCollapse": true,
-                'deferRender':    true,
+                'deferRender': true,
                 "language": {
                     "paginate":
                     {
@@ -122,7 +122,7 @@
             show_description.visible = screen_width <= 600 ? false : true
             if ($("#myTable"))
                 initializeTable()
-                
+
 
             // if the user in on view channels link page; then show a Modal with wellcome message
             //console.log(window.location.href.toLowerCase().split('/')) 
@@ -153,6 +153,8 @@
     <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()"
         onreadystatechange="if (this.readyState === 'complete') this.onload()">
         </script>
+    <!-- fb share -->
+
 
 </body>
 
