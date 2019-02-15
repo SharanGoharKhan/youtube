@@ -16,12 +16,13 @@
                 <td class="img-col align-middle"> <img class="table_img" src="{{thumbnail_url}}" height="40px"
                         width="40px" /> </td>
                 <td>
-                    <a target="_blank" href="https://www.youtube.com/channel/{{channelId}}">  {{title}}   </a>   
+                    <a target="_blank" href="https://www.youtube.com/channel/{{channelId}}"> {{title}} </a>
                 </td>
                 <td>
                     {{ description}}
                 <td class="align-middle">
-                    <button class="sub-btn" id='{{channelId}}' onclick="defineRequest('{{channelId}}')">Subscribe
+                    <button class="sub-btn" id='{{channelId}}'
+                        onclick="defineRequest('{{channelId}}','{{item_id}}')">Subscribe
                     </button>
                     {{!-- <a href="https://www.youtube.com/channel/{{channelId}}?sub_confirmation=1" target="_blank">Subscribe</a>
                     --}}
@@ -35,7 +36,7 @@
 
 <script>
     Swal.fire({
-        title: '{@Username}',
+        title: '{{name}}',
         text: '{Wellcome Message Text}',
         imageUrl: '{{imageUrl}}',
         imageWidth: 130,

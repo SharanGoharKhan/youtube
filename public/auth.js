@@ -127,6 +127,7 @@ function getSubscribedList(pageToken) {
         // console.log(response.items)
         response.items.forEach(channel => {
             let c = {
+                item_id: channel.id,
                 channelId: channel.snippet.resourceId.channelId,
                 // LENGTH CHECKS,
                 description: channel.snippet.description.length > 80 ? channel.snippet.description.substring(0, 80) + "..." : channel.snippet.description,
@@ -165,7 +166,7 @@ function getSubscribedList(pageToken) {
 function updateSubscribers(c) {
     channelsTable.destroy()
     for (let i = 0; i < c.length; i++)
-        $('#' + c[i].channelId).attr("disabled", "disabled").text('SUBSCRIBED').attr('class', 'subbed-btn');
+        $('#' + c[i].channelId).text('UNSUBSCRIBE').attr('class', 'subbed-btn');
     initializeTable()
 }
 function getLikedVideos(pageToken) {
