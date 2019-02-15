@@ -1,3 +1,3 @@
-const mongourl = 'mongodb://dbuser:dbpassword5@ds121455.mlab.com:21455/youtubeapp'
+const mongourl = '[INSERT MONGODB URL HERE]'
 
 module.exports = { mongourl }
