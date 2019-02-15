@@ -83,10 +83,9 @@ function setSigninStatus(isSignedIn) {
     // Check for static links first
     if (url_tokens.includes("privacy"))
         return null;
-    if (url_tokens.includes("channels"))
+    else if (url_tokens.includes("channels"))
         return null;
-
-    if (isAuthorized) {
+    else if (isAuthorized) {
 
         // if it is on channels/link
         if (url_tokens.length == 5) {
@@ -97,8 +96,23 @@ function setSigninStatus(isSignedIn) {
         else {
             fetch('/link')
                 .then(data => data.text())
-                .then(view => { $('#main_container').html(view) })
+                .then(view => {
+                    $('#main_container').html(view)
+                    var user = GoogleAuth.currentUser.get()
+                    var profile = user.getBasicProfile()
+                    let data = {
+                        userid: profile.getId(),
+                        name: profile.getName(),
+                        imageUrl: profile.getImageUrl(),
+                        email: profile.getEmail()
+                    }
+                    $('#link_username').html(data.name)
+                    $('#link_avatar').attr('src', data.imageUrl)
+                })
                 .catch(err => { console.log(err) })
+
+
+
 
         }
 
@@ -110,6 +124,7 @@ function setSigninStatus(isSignedIn) {
             .then(view => { $('#main_container').html(view) })
             .catch(err => { console.log(err) })
     }
+
 }
 
 function updateSigninStatus(isSignedIn) {
@@ -143,6 +158,7 @@ function getSubscribedList(pageToken) {
             var user = GoogleAuth.currentUser.get()
             var profile = user.getBasicProfile()
             let userid = profile.getId()
+
             fetch('/channels', {
                 method: 'POST',
                 headers: {
@@ -205,6 +221,14 @@ function getSharedLink() {
     $('#link-input').attr('value', $(location).attr('origin') + '/channels/@' + data.email.split('@')[0])
     $('#a-sharedlink').attr('href', '/channels/@' + data.email.split('@')[0])
     $('#txt-sharedlink').text($(location).attr('protocol') + $(location).attr('host') + '/channels/@' + data.email.split('@')[0])
+    let t = $(location).attr('origin') + '/channels/@' + data.email.split('@')[0]
+
+    let url = "https://www.facebook.com/sharer/sharer.php?u=" + t + ""
+    console.log($('.fb-share-button').length)
+    $('.fb-share-button').attr("data-href", encodeURI(t))
+    $('.a-fb-share-btn').attr("href", encodeURI(url))
+    // a-fb-share-btn
+
 }
 
 function getUserProfile() {
@@ -216,6 +240,9 @@ function getUserProfile() {
         imageUrl: profile.getImageUrl(),
         email: profile.getEmail()
     }
+
+
+
     fetch('/accounts', {
         method: 'POST',
         headers: {

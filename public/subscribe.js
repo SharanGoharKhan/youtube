@@ -40,7 +40,7 @@ function removeEmptyParams(params) {
 
 function executeRequest(request, cb) {
     request.execute(function (response) {
-        if (response.error)
+        if (response && response.error)
             alert('Couldnt subscribe')
         else {
             cb()
@@ -77,7 +77,7 @@ function defineRequest(channelId, item_id) {
     // specific to a particular API or API method.
     if (GoogleAuth && !GoogleAuth.isSignedIn.get()) GoogleAuth.signIn()
     else {
-        UnsubscribeButton = UnsubscribeButton.bind({ channelId })
+       let unsubfunc = UnsubscribeButton.bind({ channelId })
         if ($('#' + channelId).attr('class') === 'sub-btn') {
             buildApiRequest('POST',
                 '/youtube/v3/subscriptions',
@@ -85,13 +85,13 @@ function defineRequest(channelId, item_id) {
                 {
                     'snippet.resourceId.kind': 'youtube#channel',
                     'snippet.resourceId.channelId': channelId
-                }, UnsubscribeButton);
+                }, unsubfunc);
         }
         else {
-            SubscribeButton = SubscribeButton.bind({ channelId })
+            let subfunc = SubscribeButton.bind({ channelId })
             buildApiRequest('DELETE',
                 '/youtube/v3/subscriptions',
-                { 'id': item_id }, null, SubscribeButton);
+                { 'id': item_id }, null, subfunc);
         }
     }
 
@@ -99,7 +99,7 @@ function defineRequest(channelId, item_id) {
 
 function UnsubscribeButton() {
     $(("#" + this.channelId)).attr('class', 'subbed-btn');
-    $(("#" + this.channelId)).text('SUBSCRIBED');
+    $(("#" + this.channelId)).text('UNSUBSCRIBE');
 }
 
 function SubscribeButton() {

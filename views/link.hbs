@@ -1,25 +1,33 @@
 <div id="main_body" class="main_body">
 
-    <img class="link_page_avatar"  src="/images/avatar.png" height="100" width="100"/>
-    <h3 class="link_page_heading_username">{@Username}</h3>
-    <h4 class="link_page_heading_text">  Your link is generated</h4>
+    <img id="link_avatar" class="link_page_avatar" src="/images/avatar.png" height="100" width="100" />
+    <h3 id="link_username" class="link_page_heading_username">{@Username}</h3>
+    <h4 class="link_page_heading_text"> Your link is generated</h4>
 
     <div class="link-container input-group mb-3">
         <input id="link-input" readonly type="text" class="form-control link-input" placeholder="Link">
         <div class="input-group-append">
-            <button onclick="copyClipboard()" id="clipboard-btn" class="btn btn-outline-secondary  clipboard-btn" type="button">
+            <button onclick="copyClipboard()" id="clipboard-btn" class="btn btn-outline-secondary  clipboard-btn"
+                type="button">
                 <img id="clipboard-icon" class="clipboard-icon" src="/images/clipboard-with-pencil-.svg" />
                 <span class="copy-text">Copy</span>
 
             </button>
         </div>
     </div>
-    </a><a href="#" id="a-sharedlink" target="blank">Go To Link</a>
-<a href="#" class="main-btn" id="main-btn">DEBG- Sign Out</a>
+    <div class="link-btns-container">
+        <a href="#" id="a-logout" class="a-signout"> Sign Out</a>
+
+        <a href="#" id="a-sharedlink" class="a-goto-link" target="blank">Go To Link</a>
+        <div class="fb-share-button" data-href="" data-layout="button" data-size="large" data-mobile-iframe="true">
+            <a target="_blank" href="" class="a-fb-share-btn fb-xfbml-parse-ignore">Share</a>
+        </div>
+    </div>
+
 
 </div>
 <script>
 
-    $('#main-btn').on('click', function () { handleAuthClick() })
+    $('#a-logout').on('click', function () { handleAuthClick() })
     getSharedLink()
 </script>

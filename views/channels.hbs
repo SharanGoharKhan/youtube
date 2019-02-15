@@ -1,5 +1,6 @@
-<div class="channels-table ">
 
+<div class="channels-table ">
+    <h1 class="channels-table-heading" ><span class="channels-table-span">{{name}} channels</span></h1>
     <table id="myTable" class="table  table-responsive table-sm table-striped table-bordered">
         <thead>
             <tr>
@@ -31,13 +32,12 @@
             {{/each}}
         </tbody>
     </table>
-
 </div>
 
 <script>
     Swal.fire({
         title: '{{name}}',
-        text: '{Wellcome Message Text}',
+        text: 'Welcome to the list of my channels',
         imageUrl: '{{imageUrl}}',
         imageWidth: 130,
         imageHeight: 130,
